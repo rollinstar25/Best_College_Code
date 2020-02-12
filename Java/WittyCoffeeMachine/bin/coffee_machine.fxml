@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+ 
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Controller"
+      alignment="center" spacing ="10" >
+      <Label fx:id="headerText" text= "Witty Coffee Machine"/>
+     
+<HBox alignment="center"  spacing="10" >
+ 
+ <fx:define>
+    <ToggleGroup fx:id="radioToggleGroup" />
+   </fx:define>
+      <RadioButton fx:id="blackCoffee" text="BlackCoffee"
+                 toggleGroup="$radioToggleGroup" 
+                   onAction="#setSelection"/>
+      <RadioButton fx:id="coffeeWithSugar" text="Coffee with Sugar"
+                 toggleGroup="$radioToggleGroup"
+                   onAction="#setSelection"/>
+      <RadioButton fx:id="coffeeWithSugarAndCreamer" text="Coffee with Sugar and Creamer"
+                 toggleGroup="$radioToggleGroup"
+                   onAction="#setSelection"/>
+</HBox>
+     
+<HBox alignment="center" spacing="10" >
+  
+      <TextField fx:id="moneyPutIn" maxWidth="50"
+                   onAction="#calculateAmountPaid" />
+      <Button fx:id="enter" text="Enter"
+                   onAction="#calculateAmountPaid" />
+      <Button fx:id="go" text="Go"
+                   onAction="#go" />
+     
+</HBox>
+
+<HBox alignment="center" spacing="10" >
+<Label text="Amount paid:" />
+      <Label fx:id="amountPaid" text="" />
+      <Label text="Change:" />
+      <Label fx:id= "change" text="" />
+     
+</HBox>
+
+<HBox alignment="center" spacing="10">
+    <Button fx:id="cancel" text = "Cancel"
+        onAction="#reset"/>
+</HBox>
+<Label>
+   <graphic>
+      <ImageView fitWidth="150" preserveRatio="true" smooth="true">
+        <image>
+          <Image url="featured-image-2.png"/>
+        </image>
+      </ImageView>
+   </graphic>
+</Label>
+</VBox>     
