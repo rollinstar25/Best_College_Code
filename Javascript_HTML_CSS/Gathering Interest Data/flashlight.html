@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <div class="jumbotron jumbotron-fluid bg-light">
+           <div class="container">
+
+                <!-- The display classes make text big -->
+                <h1 class="display-4">
+                    Elven Couture
+                </h1>
+                <p class="lead">
+                    Giving Elves on the Shelves some Style
+                </p>
+                <p>
+                    Flashlight Accessory
+                </p>
+                
+                <div class="row">
+                    <div class="col-md-2">
+                      <button id='home'>
+                        Home
+                    </button>  
+                    </div>
+                    <div class="col-md-2">
+                        <button id='elf'>
+                          Elves
+                        </button>
+                    </div>
+                    <div class="col-md-2">
+                        <button id='accessory'>
+                        Accessories
+                    </button>
+                    </div>
+                    
+                    
+                </div>
+            </div> <!-- container -->
+        </div>
+        <div class="container">
+            <div class="row">
+                    <img src="flashlight.jpeg">
+                    <button id='buy'>
+                        Buy
+                    </button>
+                    <p id='score'>
+                        
+                    </p>
+                    
+                </div>
+                <p>
+                    There are many who think that the elf is already creepy, but have some fun with it and give him a flashlight attachment, to up the creep factor! 
+                    
+                </p>
+                <img src="Elf_FlashOff.png">
+                <img src="Elf_FlashOn.png">
+        </div>
+        
+        
+        
+        <!-- Firebase setup script comes before other scripts -->
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAIP59ZVmUFXZvH__IchM3JeD3vvSgEQSc",
+    authDomain: "firetest-c9654.firebaseapp.com",
+    databaseURL: "https://firetest-c9654.firebaseio.com",
+    projectId: "firetest-c9654",
+    storageBucket: "firetest-c9654.appspot.com",
+    messagingSenderId: "308052674816"
+  };
+  firebase.initializeApp(config);
+</script>
+        <!-- Deals with Normal Functions-->
+        <script>
+            var scores = 0;//this is a total score display
+            var buy = 0;
+            var time = 0;
+            var scoreSection = document.getElementById('score');
+              
+              //This is for rating objects
+                document.getElementById('buy').onclick = function(){
+                        buy++;
+                        scores += 10;
+                        //scoreSection.innerHTML = "Score: " + scores;
+                };
+                
+                document.getElementById('accessory').onclick = function(){
+                //give this time to run before changing the page
+                clearInterval(timer);
+                    window.location.assign('https://cms450-rollinstar25.c9users.io/accessories');
+                }
+                
+                document.getElementById('home').onclick = function(){
+                //give this time to run before changing the page
+                clearInterval(timer);
+                    window.location.assign('https://cms450-rollinstar25.c9users.io');
+                }
+                
+                document.getElementById('elf').onclick = function(){
+                //give this time to run before changing the page
+                clearInterval(timer);
+                    window.location.assign('https://cms450-rollinstar25.c9users.io/elves');
+                }
+                
+            // setting the key to the unique url
+                   var newPostKey = firebase.database().ref().child('products').push().key;
+                //update the database every second
+                var timer = setInterval(function(){
+                     const objectId = "https://https://cms450-rollinstar25.c9users.io/flashlight";
+                scores++;
+                time++;
+                   
+                  
+                   // Add the new post to the database
+                   firebase.database().ref('products/' + newPostKey).set({
+                       key: newPostKey,
+                       url: objectId,
+                       score: scores,
+                       buys: buy,
+                       timeOnPage: time
+                });
+                },1000);
+                
+        </script>
+        
+        
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

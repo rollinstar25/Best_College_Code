@@ -1,0 +1,12 @@
+The ultimate goal of this project is to make a program to measure others interest in products on a website.
+Basically:
+    1. Each product has an HTML page from which data is collected. 
+        -The amount of time spent on a page
+        -If the user pressed "buy"
+    2. When the webpage is closed, it should send all the data collected to the database
+    
+Issues:
+    1. How to tell when the webpage is closed?
+    2. How to avoid an infinte loop when creating the timer?
+    Because the webpage will freeze if there is one
+    3. Figuring out my image paths( its a silly problem, but I can't figure it out)

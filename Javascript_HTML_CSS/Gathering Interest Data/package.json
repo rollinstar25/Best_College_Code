@@ -1,0 +1,23 @@
+{
+  "name": "cms450-f18-project-4-rollinstar25",
+  "version": "1.0.0",
+  "description": "## You may work with a partner on this project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rollinscs/cms450-f18-project-4-rollinstar25.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rollinscs/cms450-f18-project-4-rollinstar25/issues"
+  },
+  "homepage": "https://github.com/rollinscs/cms450-f18-project-4-rollinstar25#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "firebase": "^5.7.0"
+  }
+}
